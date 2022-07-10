@@ -6,7 +6,7 @@ import 'package:octocoin/features/search/external/coingecko/coingecko_datasource
 void main() {
   var datasource = CoingeckoDatasource(Dio());
 
-  test('Needs to return a ', () async {
+  test('Needs to return a List of MarketModel', () async {
     final result = await datasource.search(vsCurrency: 'usd');
 
     expect(result, isA<List<MarketModel>>());
