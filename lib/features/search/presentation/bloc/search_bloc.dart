@@ -11,15 +11,25 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
 
   SearchBloc(this.marketSearch) : super(const SearchLoading()) {
     on<LoadSearch>((event, emit) async {
-      var result = await marketSearch(
+      var markets = await marketSearch(
         priceChangePercentages: [''],
         vsCurrency: 'usd',
       );
 
-      result.fold(
-        (l) => emit(SearchError(l)),
-        (r) => emit(SearchSucess(r)),
+      var savedMarkets = await marketSearch(
+        priceChangePercentages: [''],
+        marketIds: ['bluebenx'],
+        vsCurrency: 'usd',
       );
+
+      if (markets.isLeft() || savedMarkets.isLeft()) {
+        return emit(SearchError(Exception()));
+      }
+
+      emit(SearchSucess(
+        markets: markets.getOrElse(() => []),
+        savedMarkets: savedMarkets.getOrElse(() => []),
+      ));
     });
   }
 }

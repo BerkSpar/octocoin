@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-    <a href="https://play.google.com/store/apps/details?id=com.berkspar.kite">
+    <a href="https://play.google.com/store/apps/details?id=com.berkspar.octocoin">
        <img alt="Get it on Google Play" title="Google Play" src="http://i.imgur.com/mtGRPuM.png" height="50">
     </a>
 </p>

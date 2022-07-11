@@ -1,13 +1,13 @@
 import 'package:equatable/equatable.dart';
 
 class Market extends Equatable {
-  String name;
-  String code;
-  num marketCap;
-  num currentPrice;
-  String? imageUrl;
+  final String name;
+  final String code;
+  final num marketCap;
+  final num currentPrice;
+  final String? imageUrl;
 
-  Market({
+  const Market({
     required this.name,
     required this.code,
     required this.currentPrice,

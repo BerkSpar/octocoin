@@ -17,9 +17,14 @@ class SearchError extends SearchState {
 }
 
 class SearchSucess extends SearchState {
-  final List<Market> list;
-  const SearchSucess(this.list);
+  final List<Market> markets;
+  final List<Market> savedMarkets;
+
+  const SearchSucess({
+    required this.markets,
+    required this.savedMarkets,
+  });
 
   @override
-  List<Object> get props => [list];
+  List<Object> get props => [markets, savedMarkets];
 }
