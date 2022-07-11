@@ -6,3 +6,7 @@ abstract class SearchEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class LoadSearch extends SearchEvent {
+  const LoadSearch();
+}

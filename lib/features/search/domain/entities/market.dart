@@ -1,4 +1,6 @@
-class Market {
+import 'package:equatable/equatable.dart';
+
+class Market extends Equatable {
   String name;
   String code;
   num marketCap;
@@ -12,4 +14,7 @@ class Market {
     required this.marketCap,
     this.imageUrl,
   });
+
+  @override
+  List<Object?> get props => [name, code, marketCap, currentPrice, imageUrl];
 }

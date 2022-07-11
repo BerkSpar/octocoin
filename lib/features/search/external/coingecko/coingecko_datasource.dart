@@ -39,7 +39,7 @@ class CoingeckoDatasource implements SearchDatasource {
               code: e['symbol'],
               currentPrice: e['current_price'],
               marketCap: e['market_cap'],
-              imageUrl: e['imageUrl']))
+              imageUrl: e['image']))
           .toList();
 
       return list;
