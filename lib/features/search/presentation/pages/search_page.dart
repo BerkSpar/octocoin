@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:octocoin/features/search/data/repositories/search_repository.dart';
 import 'package:octocoin/features/search/domain/usecases/market_search.dart';
