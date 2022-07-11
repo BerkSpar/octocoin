@@ -24,9 +24,9 @@ class CoingeckoDatasource implements SearchDatasource {
         'page': page,
         'per_page': itensPerPage,
         'sparkline': sparkline,
-        'price_change_percentage': priceChangePercentages,
+        'price_change_percentage': priceChangePercentages?.join(","),
         'order': order,
-        'ids': marketIds,
+        'ids': marketIds?.join(","),
       },
     );
 
