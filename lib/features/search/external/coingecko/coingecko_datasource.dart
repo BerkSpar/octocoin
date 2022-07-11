@@ -35,11 +35,14 @@ class CoingeckoDatasource implements SearchDatasource {
 
       final list = jsonList
           .map((e) => MarketModel(
-              name: e['name'],
-              code: e['symbol'],
-              currentPrice: e['current_price'],
-              marketCap: e['market_cap'],
-              imageUrl: e['image']))
+                id: e['id'],
+                name: e['name'],
+                code: e['symbol'],
+                currentPrice: e['current_price'],
+                marketCap: e['market_cap'],
+                imageUrl: e['image'],
+                pricePercentageChange24h: e['price_change_percentage_24h'],
+              ))
           .toList();
 
       return list;

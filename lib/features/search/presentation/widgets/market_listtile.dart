@@ -57,11 +57,13 @@ class MarketListTile extends StatelessWidget {
                 ),
               ),
               Text(
-                '-3,84%',
+                '${market.pricePercentageChange24h.toStringAsFixed(2)}%',
                 style: GoogleFonts.notoSans(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
-                  color: Colors.red,
+                  color: market.pricePercentageChange24h < 0
+                      ? Colors.redAccent
+                      : Colors.greenAccent,
                 ),
               ),
             ],

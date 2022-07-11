@@ -44,17 +44,23 @@ class MarketCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  '3.45',
+                  '${market.pricePercentageChange24h.toStringAsFixed(2)}%',
                   style: GoogleFonts.notoSans(
                     fontWeight: FontWeight.bold,
-                    color: Colors.greenAccent,
+                    color: market.pricePercentageChange24h < 0
+                        ? Colors.redAccent
+                        : Colors.greenAccent,
                     fontSize: 18,
                   ),
                 ),
                 const SizedBox(width: 8),
-                const Icon(
-                  Icons.arrow_upward,
-                  color: Colors.greenAccent,
+                Icon(
+                  market.pricePercentageChange24h < 0
+                      ? Icons.arrow_downward
+                      : Icons.arrow_upward,
+                  color: market.pricePercentageChange24h < 0
+                      ? Colors.redAccent
+                      : Colors.greenAccent,
                   size: 18,
                 )
               ],

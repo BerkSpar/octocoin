@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:octocoin/features/search/domain/entities/market.dart';
@@ -28,9 +26,12 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
         return emit(SearchError(Exception()));
       }
 
+      final sortedSavedMarkets = savedMarkets.getOrElse(() => []);
+      sortedSavedMarkets.sort((a, b) => a.id == 'bluebenx' ? 0 : 1);
+
       emit(SearchSucess(
         markets: markets.getOrElse(() => []),
-        savedMarkets: savedMarkets.getOrElse(() => []),
+        savedMarkets: sortedSavedMarkets,
       ));
 
       Future.delayed(const Duration(seconds: 15))
