@@ -5,7 +5,7 @@ import 'package:octocoin/features/search/data/datasources/search_datasource.dart
 import 'package:octocoin/features/search/data/repositories/search_repository.dart';
 
 @GenerateMocks([SearchDatasource])
-import 'search_datasource_test.mocks.dart';
+import 'search_repository_test.mocks.dart';
 
 void main() {
   final datasource = MockSearchDatasource();
