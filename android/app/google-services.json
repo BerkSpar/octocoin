@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1074806224543",
+    "project_id": "octocoin",
+    "storage_bucket": "octocoin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1074806224543:android:4c46b44a2e8f8fbc2094aa",
+        "android_client_info": {
+          "package_name": "com.example.octocoin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1074806224543-mhbl1qpa8006cv398iv75s8a50t60pmd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTm55wbIjA5SOblkyJWKB84wQd2njsEsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1074806224543-mhbl1qpa8006cv398iv75s8a50t60pmd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

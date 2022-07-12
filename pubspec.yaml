@@ -18,10 +18,12 @@ dependencies:
   google_fonts: ^3.0.1
   font_awesome_flutter: ^10.1.0
   dartz: ^0.10.1
-
-  cupertino_icons: ^1.0.2
+  firebase_core: ^1.19.1
+  firebase_auth: ^3.4.1
   freezed_annotation: ^2.0.3
   json_annotation: ^4.6.0
+
+  cupertino_icons: ^1.0.2
 
 dev_dependencies:
   mockito: ^5.2.0
