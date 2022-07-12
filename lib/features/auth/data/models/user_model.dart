@@ -6,6 +6,5 @@ class UserModel extends User {
     required super.email,
     required super.username,
     super.imageUrl,
-    super.password,
   });
 }

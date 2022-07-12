@@ -15,7 +15,11 @@ class AuthRepositoryImpl implements AuthRepository {
       final result =
           await datasource.loginWithEmail(email: email, password: password);
 
-      return right(result);
+      if (result != null) {
+        return right(result);
+      } else {
+        return left(Exception('There is no user'));
+      }
     } on Exception catch (e) {
       return left(e);
     }
