@@ -1,7 +1,7 @@
 name: octocoin
 description: A new Flutter project.
 
-publish_to: 'none'
+publish_to: "none"
 version: 1.0.0+1
 
 environment:
@@ -11,29 +11,29 @@ dependencies:
   flutter:
     sdk: flutter
 
-  flutter_bloc: ^8.0.1
-  equatable: ^2.0.3
-  freezed: ^2.0.4
-  dio: ^4.0.6
-  google_fonts: ^3.0.1
-  font_awesome_flutter: ^10.1.0
+  flutter_bloc: ^8.1.5
+  equatable: ^2.0.5
+  freezed: ^2.5.2
+  dio: ^5.4.3+1
+  google_fonts: ^6.2.1
+  font_awesome_flutter: ^10.7.0
   dartz: ^0.10.1
-  firebase_core: ^1.19.1
-  firebase_auth: ^3.4.1
-  freezed_annotation: ^2.0.3
-  json_annotation: ^4.6.0
+  firebase_core: ^2.31.0
+  firebase_auth: ^4.19.5
+  freezed_annotation: ^2.4.1
+  json_annotation: ^4.9.0
 
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.8
 
 dev_dependencies:
-  mockito: ^5.2.0
-  
+  mockito: ^5.4.4
+
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.0
-  build_runner: ^2.1.11
-  json_serializable: ^6.3.1
+  flutter_lints: ^4.0.0
+  build_runner: ^2.4.9
+  json_serializable: ^6.8.0
 
 flutter:
   uses-material-design: true

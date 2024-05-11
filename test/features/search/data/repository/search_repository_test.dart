@@ -12,7 +12,7 @@ void main() {
   final repository = SearchRepositoryImpl(datasource);
 
   test('Need to return a exception when error', () async {
-    when(datasource.search()).thenThrow(Exception());
+    when(datasource.search(vsCurrency: 'usd')).thenThrow(Exception());
 
     final result = await repository.getMarkets(
       vsCurrency: 'usd',

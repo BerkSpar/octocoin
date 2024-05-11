@@ -10,3 +10,7 @@ abstract class SearchEvent extends Equatable {
 class LoadSearch extends SearchEvent {
   const LoadSearch();
 }
+
+class RetrySearch extends SearchEvent {
+  const RetrySearch();
+}

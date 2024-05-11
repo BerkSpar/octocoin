@@ -7,7 +7,7 @@ abstract class MarketSearch {
     required List<String> priceChangePercentages,
     required String vsCurrency,
     int page = 1,
-    int itensPerPage = 20,
+    int itensPerPage = 100,
     bool sparkline = false,
     String? order,
     List<String>? marketIds,
@@ -33,8 +33,8 @@ class MarketSearchImpl implements MarketSearch {
       return Left(Exception('Page needs to be positive'));
     }
 
-    if (itensPerPage < 0 || itensPerPage > 250) {
-      return Left(Exception('Itens per page needs to be between 0 and 250'));
+    if (itensPerPage < 1 || itensPerPage > 250) {
+      return Left(Exception('Itens per page needs to be between 1 and 250'));
     }
 
     return await repository.getMarkets(

@@ -6,9 +6,9 @@ class MarketListTile extends StatelessWidget {
   final Market market;
 
   const MarketListTile({
-    Key? key,
+    super.key,
     required this.market,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +21,14 @@ class MarketListTile extends StatelessWidget {
               market.imageUrl!,
               height: 56,
               width: 56,
+              errorBuilder: (context, error, stackTrace) => Container(
+                height: 56,
+                width: 56,
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade200,
+                  shape: BoxShape.circle,
+                ),
+              ),
             ),
           if (market.imageUrl != null) const SizedBox(width: 16),
           Column(

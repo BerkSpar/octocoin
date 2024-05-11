@@ -6,9 +6,9 @@ class MarketCard extends StatelessWidget {
   final Market market;
 
   const MarketCard({
-    Key? key,
+    super.key,
     required this.market,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

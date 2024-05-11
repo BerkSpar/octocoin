@@ -7,9 +7,13 @@ part 'search_event.dart';
 part 'search_state.dart';
 
 class SearchBloc extends Bloc<SearchEvent, SearchState> {
-  final MarketSearch marketSearch;
+  MarketSearch marketSearch;
+  MarketSearch fallbackMarketSearch;
 
-  SearchBloc(this.marketSearch) : super(const SearchLoading()) {
+  SearchBloc(
+    this.marketSearch,
+    this.fallbackMarketSearch,
+  ) : super(const SearchLoading()) {
     on<LoadSearch>((event, emit) async {
       var markets = await marketSearch(
         priceChangePercentages: ['24h', '30d', '200d', '1y'],
@@ -18,7 +22,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
 
       var savedMarkets = await marketSearch(
         priceChangePercentages: ['24h', '30d', '200d', '1y'],
-        marketIds: ['bitcoin', 'bluebenx'],
+        marketIds: ['bitcoin'],
         vsCurrency: 'usd',
       );
 
@@ -26,16 +30,20 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
         return emit(SearchError(Exception()));
       }
 
-      final sortedSavedMarkets = savedMarkets.getOrElse(() => []);
-      sortedSavedMarkets.sort((a, b) => a.id == 'bluebenx' ? 0 : 1);
-
       emit(SearchSucess(
         markets: markets.getOrElse(() => []),
-        savedMarkets: sortedSavedMarkets,
+        savedMarkets: savedMarkets.getOrElse(() => []),
       ));
-
-      Future.delayed(const Duration(seconds: 15))
-          .whenComplete(() => add(const LoadSearch()));
     });
+
+    on<RetrySearch>(((event, emit) {
+      emit(const SearchLoading());
+
+      var aux = marketSearch;
+      marketSearch = fallbackMarketSearch;
+      fallbackMarketSearch = aux;
+
+      add(const LoadSearch());
+    }));
   }
 }

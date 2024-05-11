@@ -4,12 +4,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:octocoin/features/search/data/repositories/search_repository.dart';
 import 'package:octocoin/features/search/domain/usecases/market_search.dart';
 import 'package:octocoin/features/search/external/coingecko/coingecko_datasource.dart';
+import 'package:octocoin/features/search/external/coinmarketcap/coinmarketcap_datasource.dart';
 import 'package:octocoin/features/search/presentation/bloc/search_bloc.dart';
 import 'package:octocoin/features/search/presentation/widgets/market_listtile.dart';
 import '../widgets/market_card.dart';
 
 class SearchPage extends StatefulWidget {
-  const SearchPage({Key? key}) : super(key: key);
+  const SearchPage({super.key});
 
   @override
   State<SearchPage> createState() => _SearchPageState();
@@ -17,7 +18,9 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
   final bloc = SearchBloc(
-      MarketSearchImpl(SearchRepositoryImpl(CoingeckoDatasource(Dio()))));
+    MarketSearchImpl(SearchRepositoryImpl(CoingeckoDatasource(Dio()))),
+    MarketSearchImpl(SearchRepositoryImpl(CoinMarketCapDatasource(Dio()))),
+  );
 
   @override
   void initState() {
@@ -34,7 +37,18 @@ class _SearchPageState extends State<SearchPage> {
             final state = bloc.state;
 
             if (state is SearchError) {
-              return Center(child: Text(state.error.toString()));
+              return Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(state.error.toString()),
+                    TextButton(
+                      onPressed: () => bloc.add(const RetrySearch()),
+                      child: const Text("retry"),
+                    )
+                  ],
+                ),
+              );
             }
 
             if (state is SearchLoading) {
@@ -42,7 +56,7 @@ class _SearchPageState extends State<SearchPage> {
             } else if (state is SearchSucess) {
               return ListView(
                 children: [
-                  const SizedBox(height: 32),
+                  const SizedBox(height: 8),
                   SizedBox(
                     height: 240,
                     child: PageView.builder(
