@@ -1,40 +1,29 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:octocoin/features/search/data/repositories/search_repository.dart';
-import 'package:octocoin/features/search/domain/usecases/market_search.dart';
-import 'package:octocoin/features/search/external/coingecko/coingecko_datasource.dart';
-import 'package:octocoin/features/search/external/coinmarketcap/coinmarketcap_datasource.dart';
 import 'package:octocoin/features/search/presentation/bloc/search_bloc.dart';
 import 'package:octocoin/features/search/presentation/widgets/market_listtile.dart';
 import '../widgets/market_card.dart';
 
 class SearchPage extends StatefulWidget {
-  const SearchPage({super.key});
+  final SearchBloc bloc;
+
+  const SearchPage({
+    super.key,
+    required this.bloc,
+  });
 
   @override
   State<SearchPage> createState() => _SearchPageState();
 }
 
 class _SearchPageState extends State<SearchPage> {
-  final bloc = SearchBloc(
-    MarketSearchImpl(SearchRepositoryImpl(CoingeckoDatasource(Dio()))),
-    MarketSearchImpl(SearchRepositoryImpl(CoinMarketCapDatasource(Dio()))),
-  );
-
-  @override
-  void initState() {
-    super.initState();
-    bloc.add(const LoadSearch());
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: StreamBuilder<SearchState>(
-          stream: bloc.stream,
+          stream: widget.bloc.stream,
           builder: (context, snapshot) {
-            final state = bloc.state;
+            final state = widget.bloc.state;
 
             if (state is SearchError) {
               return Center(
@@ -43,7 +32,7 @@ class _SearchPageState extends State<SearchPage> {
                   children: [
                     Text(state.error.toString()),
                     TextButton(
-                      onPressed: () => bloc.add(const RetrySearch()),
+                      onPressed: () => widget.bloc.add(const RetrySearch()),
                       child: const Text("retry"),
                     )
                   ],

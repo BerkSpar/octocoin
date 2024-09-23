@@ -50,20 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCTm55wbIjA5SOblkyJWKB84wQd2njsEsg',
-    appId: '1:1074806224543:android:4c46b44a2e8f8fbc2094aa',
-    messagingSenderId: '1074806224543',
-    projectId: 'octocoin',
-    storageBucket: 'octocoin.appspot.com',
+    apiKey: 'AIzaSyD4kGOFcAmRlcw32OHgbVeSfpC8ioJSdPQ',
+    appId: '1:1062914033618:android:da4052ec04ccdeb6452a0b',
+    messagingSenderId: '1062914033618',
+    projectId: 'octocoin-app',
+    storageBucket: 'octocoin-app.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyD1Z4gEtQWDNaMf7rjtMdR79sHA5LhLgsE',
-    appId: '1:1074806224543:ios:89b8fd35654901f12094aa',
-    messagingSenderId: '1074806224543',
-    projectId: 'octocoin',
-    storageBucket: 'octocoin.appspot.com',
-    iosClientId: '1074806224543-j0mllplqtahq9p782avm5i7cfbarm8vu.apps.googleusercontent.com',
-    iosBundleId: 'com.example.octocoin',
+    apiKey: 'AIzaSyC276DY9gmthXO7s8A_mERRQoDd9hfEdhg',
+    appId: '1:1062914033618:ios:000468f255781ba6452a0b',
+    messagingSenderId: '1062914033618',
+    projectId: 'octocoin-app',
+    storageBucket: 'octocoin-app.appspot.com',
+    iosBundleId: 'com.berkspar.octocoin',
   );
+
 }

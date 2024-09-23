@@ -1,36 +1,26 @@
 {
   "project_info": {
-    "project_number": "1074806224543",
-    "project_id": "octocoin",
-    "storage_bucket": "octocoin.appspot.com"
+    "project_number": "1062914033618",
+    "project_id": "octocoin-app",
+    "storage_bucket": "octocoin-app.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1074806224543:android:4c46b44a2e8f8fbc2094aa",
+        "mobilesdk_app_id": "1:1062914033618:android:da4052ec04ccdeb6452a0b",
         "android_client_info": {
-          "package_name": "com.example.octocoin"
+          "package_name": "com.berkspar.octocoin"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "1074806224543-mhbl1qpa8006cv398iv75s8a50t60pmd.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCTm55wbIjA5SOblkyJWKB84wQd2njsEsg"
+          "current_key": "AIzaSyD4kGOFcAmRlcw32OHgbVeSfpC8ioJSdPQ"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1074806224543-mhbl1qpa8006cv398iv75s8a50t60pmd.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
